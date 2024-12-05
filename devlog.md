@@ -1,0 +1,2 @@
+12/5 1:37 am
+Time to begin. A little dogged with other stuff is why I'm starting now. Oops. But yeah, I'll have to start with the UI--I need it to test the program functionality, after all. Then I'll begin implementing functionality. This project doesn't seem as bad as the other ones, so I figure I should be able to get this in by midnight. I've already done some of the project, but ig I can just add it to this repo as it's done.
