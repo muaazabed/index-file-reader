@@ -6,7 +6,7 @@ Included Files:
 - main.py:
   Contains the implementation of the program. Allows user to edit and view index files.
 - btree.py
-  Contains my implementation of a btree. 
+  Contains my implementation of a btree.
 
 How to Compile/Run:
 
