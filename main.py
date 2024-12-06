@@ -68,7 +68,7 @@ def main():
                 filename = input("Enter the filename: ")
                 path = os.path.join(os.getcwd(), filename)
                 if not os.path.exists(path):
-                    print(f"{filename} doesn't exist.")
+                    print(f"Error: {filename} doesn't exist.")
                     continue
                 with open(filename, "rb") as f:
                     if f.read(8) != MAGIC_NUMBER:
@@ -82,7 +82,7 @@ def main():
                 
             case "insert":
                 if not btree:
-                    print("Error: No file is open.")
+                    print("Error: No file is open.\n")
                     continue
                 try:
                     key = to_unsigned_int(input("Enter key: "))
@@ -91,13 +91,28 @@ def main():
                 except ValueError as e:
                     print(f"Error: {e}")
 
-            
             case "search":
-                pass
+                if not btree:
+                    print("Error: No file is open.")
+                    continue
+                try:
+                    key = to_unsigned_int(input("Enter key to search: "))
+                    result = btree.search(key)
+                    if result is None:
+                        print("Key not found.")
+                    else:
+                        print(f"Found: Key={result[0]}, Value={result[1]}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    
             case "load":
                 pass
             case "print":
-                pass
+                if not btree:
+                    print("Error: No file is open.")
+                    continue
+                btree.print_tree()
+                
             case "extract":
                 pass
             

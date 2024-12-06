@@ -18,7 +18,6 @@ class BTree:
         self.degree = degree
 
     def insert(self, key, value):
-        """Insert a key-value pair into the B-Tree."""
         if self.root.is_full(self.degree):
             new_root = Node(block_id=self.root.block_id + 1)
             new_root.is_leaf = False
@@ -29,7 +28,6 @@ class BTree:
         self.insert_non_full(self.root, key, value)
 
     def insert_non_full(self, node, key, value):
-        """Insert a key-value pair into a non-full node."""
         if node.is_leaf:
             i = len(node.keys) - 1
             while i >= 0 and key < node.keys[i]:
@@ -51,7 +49,6 @@ class BTree:
             self.insert_non_full(node.children[i], key, value)
 
     def split_child(self, parent, index, child):
-        """Split a full child node."""
         degree = self.degree
         new_node = Node(block_id=child.block_id + 1)
         new_node.is_leaf = child.is_leaf
@@ -70,3 +67,28 @@ class BTree:
         child.values = child.values[:degree - 1]
 
         print(f"Split node {child.block_id} into nodes {child.block_id} and {new_node.block_id}")
+
+    def search(self, key, node=None):
+        if node is None:
+            node = self.root
+
+        i = 0
+        while i < len(node.keys) and key > node.keys[i]:
+            i += 1
+
+        if i < len(node.keys) and key == node.keys[i]:
+            return (node.keys[i], node.values[i])
+
+        if node.is_leaf:
+            return None
+
+        return self.search(key, node.children[i])
+
+    def print_tree(self, node=None, level=0):
+        if node is None:
+            node = self.root
+
+        print(f"Level {level} Node {node.block_id}: {list(zip(node.keys, node.values))}")
+        if not node.is_leaf:
+            for child in node.children:
+                self.print_tree(child, level + 1)
