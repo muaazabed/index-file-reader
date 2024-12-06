@@ -3,3 +3,6 @@ Time to begin. A little dogged with other stuff is why I'm starting now. Oops. B
 
 12/5 3:05 pm
 Just got back from lunch and finished the menu. Next, I'll try to get the file access and parsing working. Hopefully this should be easy, as I've got a lot of experience building crappy little parsers.
+
+12/5 8:22 pm
+I finally completed the parser and the btree. I thought that implementing a btree would be pretty easy, seeing as I already did that for one of my other classes, but the code that I wrote was a little broken (it wouldn't split properly, so I had to effectively rewrite it from scratch). The parser was also a whole other thing; it wasn't the worst thing in the world to write (big thanks to whoever mentioned the "to_bytes()" function in the instructions), but testing it necessitated I write the "open" function, which had a lot of issues when it came to opening files and whatnot. I also completed the create function since a lot of code could be reused from the open function, and I completed the insert function because the btree I created had it's own insert function just begging to be implemented. Next, I'll probably try to implement search and print functions next. The print function can just be a modified parser, saving me a lot of time, and the search function I can achieve recursively. These next ones should be pretty simple.
