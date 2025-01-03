@@ -1,5 +1,3 @@
-Muaaz Abed mma210009
-
 Included Files:
 
 - main.py:
