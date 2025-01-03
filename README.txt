@@ -1,5 +1,4 @@
-Muaaz Abed mma210009 CS 4348-502 
-Project 3
+Muaaz Abed mma210009
 
 Included Files:
 
